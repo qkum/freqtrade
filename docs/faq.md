@@ -15,9 +15,11 @@ This could have the following reasons:
 
 ### I have waited 5 minutes, why hasn't the bot made any trades yet?!
 
-Depending on the buy strategy, the amount of whitelisted coins, the
+#1 Depending on the buy strategy, the amount of whitelisted coins, the
 situation of the market etc, it can take up to hours to find good entry
 position for a trade. Be patient!
+
+#2 Or it may because you made an human error? Like writing --dry-run when you wanted to trade live?. Maybe an error with the exchange API? Or something else. You will have to do the hard work of finding out the root cause of the problem :) 
 
 ### I have made 12 trades already, why is my total profit negative?!
 
@@ -129,16 +131,16 @@ to find a great result (unless if you are very lucky), so you probably
 have to run it for 10.000 or more. But it will take an eternity to
 compute.
 
-We recommend you to run it at least 10.000 epochs:
+We recommend you to run between 500-1000 epochs over and over untill you hit at least 10.000 epocs in total. You can best judge by looking at the results - if the bot keep discovering more profitable strategies or not. 
 
 ```bash
-freqtrade hyperopt -e 10000
+freqtrade hyperopt -e 1000
 ```
 
 or if you want intermediate result to see
 
 ```bash
-for i in {1..100}; do freqtrade hyperopt -e 100; done
+for i in {1..100}; do freqtrade hyperopt -e 1000; done
 ```
 
 ### Why it is so long to run hyperopt?
